@@ -18,7 +18,7 @@ export const OnboardingForm: React.FC = () => {
       defaultValues: { firstName: '', lastName: '', phone: '', corporationNumber: '' },
     });
 
-  const { status: corpStatus, message: corpMessage, check } = useCorpNumberCheck();
+  const { status: corpStatus, message: corpMessage, check, reset } = useCorpNumberCheck();
 
   const onBlurCorp = useCallback(async () => {
     const value = getValues('corporationNumber');
@@ -113,7 +113,10 @@ export const OnboardingForm: React.FC = () => {
           <TextField
             label="Corporation Number"
             value={value}
-            onChangeText={onChange}
+            onChangeText={(text) => {
+              onChange(text);
+              reset();
+            }}
             onBlur={async () => { onBlur(); await onBlurCorp(); }}
             keyboardType="number-pad"
             placeholder=""

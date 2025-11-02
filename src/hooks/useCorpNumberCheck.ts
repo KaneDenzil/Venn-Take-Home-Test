@@ -43,5 +43,12 @@ export function useCorpNumberCheck() {
     }
   }, []);
 
-  return { status, message, check };
+  const reset = useCallback(() => {
+    setStatus('idle');
+    setMessage(null);
+    ctrlRef.current?.abort();
+    ctrlRef.current = null;
+  }, []);
+
+  return { status, message, check, reset };
 }
