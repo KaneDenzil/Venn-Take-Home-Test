@@ -135,7 +135,7 @@ describe('OnboardingScreen Integration Tests', () => {
     fireEvent.changeText(getByTestId('phoneInput'), '+14165551234');
     fireEvent.changeText(getByTestId('corpInput'), '123456789');
 
-    // Mock corporation number validation
+    // Mock corporation number validation (on blur)
     mockFetch.mockResolvedValueOnce({ 
       ok: true, 
       json: async () => ({ corporationNumber: '123456789', valid: true }) 
@@ -148,6 +148,18 @@ describe('OnboardingScreen Integration Tests', () => {
         expect.stringContaining('/corporation-number/123456789'), 
         expect.any(Object)
       );
+    });
+
+    // Wait for button to be enabled (corpStatus is no longer 'checking')
+    await waitFor(() => {
+      const submitButton = getByTestId('submitButton');
+      expect(submitButton.props.accessibilityState.disabled).toBe(false);
+    });
+
+    // Mock corporation number validation again (on submit)
+    mockFetch.mockResolvedValueOnce({ 
+      ok: true, 
+      json: async () => ({ corporationNumber: '123456789', valid: true }) 
     });
 
     // Mock form submission
@@ -185,7 +197,7 @@ describe('OnboardingScreen Integration Tests', () => {
     fireEvent.changeText(getByTestId('phoneInput'), '+14165551234');
     fireEvent.changeText(getByTestId('corpInput'), '123456789');
 
-    // Mock corporation number validation success
+    // Mock corporation number validation success (on blur)
     mockFetch.mockResolvedValueOnce({ 
       ok: true, 
       json: async () => ({ corporationNumber: '123456789', valid: true }) 
@@ -193,6 +205,18 @@ describe('OnboardingScreen Integration Tests', () => {
 
     fireEvent(getByTestId('corpInput'), 'onBlur');
     await waitFor(() => expect(mockFetch).toHaveBeenCalledTimes(1));
+
+    // Wait for button to be enabled (corpStatus is no longer 'checking')
+    await waitFor(() => {
+      const submitButton = getByTestId('submitButton');
+      expect(submitButton.props.accessibilityState.disabled).toBe(false);
+    });
+
+    // Mock corporation number validation again (on submit)
+    mockFetch.mockResolvedValueOnce({ 
+      ok: true, 
+      json: async () => ({ corporationNumber: '123456789', valid: true }) 
+    });
 
     // Mock form submission failure
     mockFetch.mockResolvedValueOnce({ 
