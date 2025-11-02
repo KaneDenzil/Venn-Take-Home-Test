@@ -1,0 +1,14 @@
+node_modules
+android
+ios
+.expo
+.expo-shared
+build
+dist
+*.log
+coverage
+jest.config.js
+jest.setup.js
+babel.config.js
+metro.config.js
+

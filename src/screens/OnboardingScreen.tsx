@@ -1,22 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { FormTemplate } from '../components/templates/FormTemplate';
+import { OnboardingForm } from '../components/organisms/OnboardingForm';
 
 export const OnboardingScreen: React.FC = () => {
-
   return (
-    <View style={styles.container}>
-      <Text>Onboarding Screen</Text>
-      <StatusBar style="auto" />
-    </View>
+    <FormTemplate title="Onboarding Form">
+      <OnboardingForm />
+    </FormTemplate>
   );
-
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
