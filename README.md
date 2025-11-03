@@ -2,6 +2,10 @@
 
 A production-ready React Native onboarding form built with TypeScript, featuring comprehensive validation, async API integration, and testing.
 
+## Demo
+
+https://github.com/user-attachments/assets/7c02ceb8-ffc8-4c6a-a5d9-d7e7496fe576
+
 ## Features
 
 - Form validation with real-time error messages
