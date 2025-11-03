@@ -1,6 +1,6 @@
-# Venn - Onboarding Form
+# Venn - Take Home Test
 
-A React Native onboarding form built with TypeScript, featuring form validation, async API integration, and automated testing.
+A production-ready React Native onboarding form built with TypeScript, featuring comprehensive validation, async API integration, and testing.
 
 ## Features
 
