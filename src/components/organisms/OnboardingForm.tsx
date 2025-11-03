@@ -2,12 +2,13 @@ import React, { useCallback } from 'react';
 import { View, Alert } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { onboardingSchema, OnboardingForm as OnboardingFormType } from '../../domain/onboarding/schema';
-import { spacing } from '../../design/spacing';
+import type { OnboardingForm as OnboardingFormType } from '../../utils/onboarding/schema';
+import { onboardingSchema } from '../../utils/onboarding/schema';
+import { spacing } from '../../constants/spacing';
 import { TextField } from '../molecules/TextField';
 import { Button } from '../atoms/Button';
 import { useCorpNumberCheck } from '../../hooks/useCorpNumberCheck';
-import { submitProfile } from '../../domain/onboarding/api';
+import { submitProfile } from '../../utils/onboarding/api';
 
 export const OnboardingForm: React.FC = () => {
   const { control, handleSubmit, formState: { errors, isValid, isSubmitting }, getValues, setError, trigger } =
@@ -39,8 +40,9 @@ export const OnboardingForm: React.FC = () => {
     try {
       await submitProfile(vals);
       Alert.alert('Success', 'Profile submitted successfully.');
-    } catch (e: any) {
-      Alert.alert('Submission failed', e?.message || 'Unknown error');
+    } catch (e) {
+      const errorMessage = e instanceof Error ? e.message : 'Unknown error';
+      Alert.alert('Submission failed', errorMessage);
     }
   });
 

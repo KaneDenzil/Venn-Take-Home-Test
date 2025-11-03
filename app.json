@@ -4,7 +4,7 @@
     "slug": "Venn",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/ios-icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -18,15 +18,30 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
+        "foregroundImage": "./assets/adaptive-icon-foreground.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.venn.vennTakeHomeTest"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "ios": {
+            "backgroundColor": "#ffffff",
+            "image": "./assets/splash-icon.png",
+            "resizeMode": "cover"
+          },
+          "android": {
+            "backgroundColor": "#ffffff",
+            "image": "./assets/splash-icon.png",
+            "imageWidth": 150
+          }
+        }
+      ]
+    ]
   }
 }

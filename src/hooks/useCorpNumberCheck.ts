@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import { checkCorporationNumber } from '../domain/onboarding/api';
+import { checkCorporationNumber } from '../utils/onboarding/api';
 
 type Status = 'idle' | 'checking' | 'valid' | 'invalid' | 'error';
 

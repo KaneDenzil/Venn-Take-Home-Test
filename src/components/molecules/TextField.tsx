@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, TextInput, TextInputProps } from 'react-native';
-import { colors } from '../../design/colors';
-import { spacing } from '../../design/spacing';
-import { scaleHeight, scaleWidth } from '../../design/responsive';
+import type { TextInputProps } from 'react-native';
+import { View, TextInput } from 'react-native';
+import { colors } from '../../constants/colors';
+import { spacing } from '../../constants/spacing';
+import { scaleHeight, scaleWidth } from '../../constants/responsive';
 import { HelperText } from '../atoms/HelperText';
 import { Label } from '../atoms/Label';
 

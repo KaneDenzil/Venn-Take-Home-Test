@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
-import { colors } from '../../design/colors';
-import { spacing } from '../../design/spacing';
-import { typography } from '../../design/typography';
+import { colors } from '../../constants/colors';
+import { spacing } from '../../constants/spacing';
+import { typography } from '../../constants/typography';
 
 type Props = { title: string; children: React.ReactNode };
 

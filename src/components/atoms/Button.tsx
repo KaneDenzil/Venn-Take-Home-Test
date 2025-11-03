@@ -1,8 +1,8 @@
 import React from 'react';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
-import { colors } from '../../design/colors';
-import { spacing } from '../../design/spacing';
-import { scaleHeight, scaleWidth, scaleFont } from '../../design/responsive';
+import { colors } from '../../constants/colors';
+import { spacing } from '../../constants/spacing';
+import { scaleHeight, scaleWidth, scaleFont } from '../../constants/responsive';
 import { Ionicons } from '@expo/vector-icons';
 
 type Props = {
